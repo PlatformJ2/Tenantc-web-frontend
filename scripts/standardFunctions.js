@@ -2,15 +2,23 @@
 
 
 
-function loginForm(){
-    var form = '<form id="loginForm" role="form"> \
-    <h2>TENANT-C</h2> \
+function authForm(){
+    var form = '<form class="loginForm" id="authForm" role="form"> \
+    <h2>TENANT-C<br/><span>Login</span></h2> \
     <div id="logoCont">LOGO HERE</div> \
     <div id="social-signin">\
         <ul>\
             <li id="signin-linkedin"><a href="#" class="btn"><i class="fab fa-linkedin-in fa-lg"></i> Sign in with LinkedIn</a></li>\
         </ul>\
     </div>\
+    <div class="form-group"> \
+        <label for="yourname">Your name:</label> \
+        <input type="text" class="form-control" id="yourname"> \
+    </div> \
+    <div class="agency-only form-group"> \
+        <label for="agencyname">Agency name:</label> \
+        <input type="text" class="form-control" id="agencyname"> \
+    </div> \
     <div class="form-group"> \
     <label for="email">Email address:</label> \
     <input type="email" class="form-control" id="email"> \
@@ -19,14 +27,15 @@ function loginForm(){
     <label for="pwd">Password:</label> \
     <input type="password" class="form-control" id="pwd"> \
   </div> \
-  <button type="submit" class="btn btn-primary">Submit</button>';
+  <button type="submit" class="btn btn-primary">Continue</button> \
+  <p class="formSwitch">Not registered? <a href="#" >Sign up</a></p>';
     return form;
 }
 
 function getPageHeader(){
     var header = '<div id="header">';
     header += '<div id="logo-cont">LOGO IN HERE</div>';
-    header += '<div id="profile-cont">Signin as Jez D</div>';
+    header += '<div id="profile-cont">Signed in as Jez D</div>';
     header += '<nav><ul><li>Home</li><li>Properties</li><li>Tenants</li><li>Messages</li></ul></nav>';
     header += '</div>';
     return header;

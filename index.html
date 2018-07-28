@@ -21,17 +21,30 @@
     $(function(){
         $('html').removeClass('nojs').addClass('js');
 
-        $('#wrapper').html(loginForm());
+        $('#wrapper').html(authForm());
 
         /////////////////////////////////////
         // loginform submit
-        $('body').on('submit','#loginForm',function(e){
+        $('body').on('submit','#authForm',function(e){
             e.preventDefault();
             $(this).fadeOut();
             setTimeout(function(){ 
                 $('#wrapper').before(getPageHeader());
                 $('#wrapper').html(getHomePage());
             }, 1500);
+        })
+        /////////////////////////////////////
+        $('body').on('click','.formSwitch',function(e){
+            e.preventDefault();
+            if($('#authForm').hasClass('loginForm')){
+                $('#authForm').removeClass('loginForm').addClass('signupForm');
+                $('#authForm h2 span').text('Signup');
+                $('#authForm .formSwitch').html('Already registered? <a href="#">Sign in</a>');
+            }else if($('#authForm').hasClass('signupForm')){
+                $('#authForm').removeClass('signupForm').addClass('loginForm');
+                $('#authForm h2 span').text('Login');
+                $('#authForm .formSwitch').html('Not registered? <a href="#" >Sign up</a>');
+            }
         })
 
         /////////////////////////////////////
