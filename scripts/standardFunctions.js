@@ -4,8 +4,8 @@
 
 function authForm(){
     var form = '<form class="loginForm" id="authForm" role="form"> \
-    <h2>TENANT-C<br/><span>Login</span></h2> \
-    <div id="logoCont">LOGO HERE</div> \
+    <div id="logoCont">TENANT-C LOGO HERE</div> \
+    <h2><span>Login</span></h2> \
     <div id="social-signin">\
         <ul>\
             <li id="signin-linkedin"><a href="#" class="btn"><i class="fab fa-linkedin-in fa-lg"></i> Sign in with LinkedIn</a></li>\
