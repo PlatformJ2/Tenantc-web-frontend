@@ -1,7 +1,7 @@
 {
   "name": "tenant-c",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tenant-C",
   "main": "index.html",
   "repository": {
     "type": "git",
