@@ -4,6 +4,7 @@
 
 function loginForm(){
     var form = '<form id="loginForm" role="form"> \
+    <h2>TENANT-C</h2> \
     <div id="logoCont">LOGO HERE</div> \
     <div id="social-signin">\
         <ul>\
