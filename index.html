@@ -10,12 +10,34 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+<script>
+    var baseDomain = 'tenant-c.eu.auth0.com';
+    var clientID = 'vOKh7tZ32hr4JgEO2OJhxTz5sptx165O';
+
+    var webAuth = new auth0.WebAuth({
+        domain:    baseDomain,
+        clientID:   clientID
+	});
+	  
+	function doSignin(email,password){
+		webAuth.redirect.loginWithCredentials({
+			connection: 'Username-Password-Authentication',
+			username: email,
+			password: password,
+			scope: 'openid',
+			responseType: 'id_token token',
+			redirectUri: 'https://dev.talentticker.io'
+		});
+	}
+
+  </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
     <div id="wrapper"></div>
 </body>
-<script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+
 <script src="scripts/standardFunctions.js"></script>
 <script>
     
@@ -26,14 +48,35 @@
 
         /////////////////////////////////////
         // loginform submit
-        $('body').on('submit','#authForm',function(e){
+        $('body').on('submit','.signupForm',function(e){
             e.preventDefault();
-            $(this).fadeOut();
-            setTimeout(function(){ 
-                $('#wrapper').before(getPageHeader());
-                $('#wrapper').html(getHomePage());
-            }, 1500);
-        })
+            //$(this).fadeOut();
+            var useremail = $('#youremail').val();
+            var username = $('#yourname').val();
+            var agency = $('#agencyname').val();
+            var userpassword = $('#password').val();
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": 'https://'+baseDomain+"/dbconnections/signup",
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json"
+                },
+                "processData": false,
+                    "data": "{\"client_id\": \"vOKh7tZ32hr4JgEO2OJhxTz5sptx165O\",\"email\": \""+useremail+"\",\"password\": \""+userpassword+"\",\"connection\": \"Username-Password-Authentication\",\"user_metadata\": {\"username\":\""+username+"\"},\"app_metadata\":{\"agency\": \""+agency+"\"}}"
+                }
+                
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    //signin
+                    doSignin(useremail,userpassword);
+                });
+                    setTimeout(function(){ 
+                        //$('#wrapper').before(getPageHeader());
+                        //$('#wrapper').html(getHomePage());
+                    }, 1500);
+                })
         /////////////////////////////////////
         $('body').on('click','.formSwitch',function(e){
             e.preventDefault();

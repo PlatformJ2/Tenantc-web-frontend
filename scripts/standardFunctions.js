@@ -11,21 +11,21 @@ function authForm(){
             <li id="signin-linkedin"><a href="#" class="btn"><i class="fab fa-linkedin-in fa-lg"></i> Sign in with LinkedIn</a></li>\
         </ul>\
     </div>\
-    <div class="form-group"> \
-        <label for="yourname">Your name:</label> \
-        <input type="text" class="form-control" id="yourname"> \
-    </div> \
-    <div class="agency-only form-group"> \
+    <div class="signup-only form-group"> \
         <label for="agencyname">Agency name:</label> \
         <input type="text" class="form-control" id="agencyname"> \
     </div> \
+    <div class="signup-only form-group"> \
+        <label for="yourname">Your name:</label> \
+        <input required type="text" class="form-control" id="yourname"> \
+    </div> \
     <div class="form-group"> \
     <label for="email">Email address:</label> \
-    <input type="email" class="form-control" id="email"> \
+    <input required type="email" class="form-control" id="youremail"> \
   </div> \
-  <div class="form-group"> \
+    <div class="form-group"> \
     <label for="pwd">Password:</label> \
-    <input type="password" class="form-control" id="pwd"> \
+    <input required type="password" class="form-control" id="password"> \
   </div> \
   <button type="submit" class="btn btn-primary">Continue</button> \
   <p class="formSwitch">Not registered? <a href="#" >Sign up</a></p>';
