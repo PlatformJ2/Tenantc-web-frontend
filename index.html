@@ -84,10 +84,14 @@
                 $('#authForm').removeClass('loginForm').addClass('signupForm');
                 $('#authForm h2 span').text('Signup');
                 $('#authForm .formSwitch').html('Already registered? <a href="#">Sign in</a>');
+                $('#authForm #agencyname').prop('required',true);
+                $('#authForm #yourname').prop('required',true);
             }else if($('#authForm').hasClass('signupForm')){
                 $('#authForm').removeClass('signupForm').addClass('loginForm');
                 $('#authForm h2 span').text('Login');
                 $('#authForm .formSwitch').html('Not registered? <a href="#" >Sign up</a>');
+                $('#authForm #agencyname').prop('required',false);
+                $('#authForm #yourname').prop('required',false);
             }
         })
 
