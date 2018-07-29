@@ -12,20 +12,20 @@ function authForm(){
         </ul>\
     </div>\
     <div class="signup-only form-group"> \
-        <label for="agencyname">Agency name:</label> \
-        <input type="text" class="form-control" id="agencyname"> \
+        <label class="sr-only" for="agencyname">Agency name:</label> \
+        <input placeholder="Agency name" type="text" class="form-control" id="agencyname"> \
     </div> \
     <div class="signup-only form-group"> \
-        <label for="yourname">Your name:</label> \
-        <input required type="text" class="form-control" id="yourname"> \
+        <label class="sr-only" for="yourname">Your name:</label> \
+        <input placeholder="Your name" required type="text" class="form-control" id="yourname"> \
     </div> \
     <div class="form-group"> \
-    <label for="email">Email address:</label> \
-    <input required type="email" class="form-control" id="youremail"> \
+    <label class="sr-only" for="email">Email address:</label> \
+    <input placeholder="Your Email address" required type="email" class="form-control" id="youremail"> \
   </div> \
     <div class="form-group"> \
-    <label for="pwd">Password:</label> \
-    <input required type="password" class="form-control" id="password"> \
+    <label class="sr-only" for="pwd">Password:</label> \
+    <input placeholder="Password" required type="password" class="form-control" id="password"> \
   </div> \
   <button type="submit" class="btn btn-primary">Continue</button> \
   <p class="formSwitch">Not registered? <a href="#" >Sign up</a></p>';
